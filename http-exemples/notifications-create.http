@@ -1,7 +1,8 @@
 POST http://localhost:3000/notifications HTTP/1.1
 content-type: application/json
 
-{
-    "content": "12",
+{  
+    "recipientId": "{{$guid}}",
+    "content": "Teste Novo Comentario",
     "category": "social"
 }

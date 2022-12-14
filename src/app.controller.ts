@@ -17,9 +17,9 @@ export class AppController {
     return this.prisma.notification.create({
       data: {
         id: randomUUID(),
-        content: 'Você tem uma nova mensagem',
-        category: 'social',
-        recipientId: randomUUID(),
+        content: body.content,
+        category: body.category,
+        recipientId: body.recipientId
       }
     });
   }
