@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000/notifications
+@recipientId = {{$guid}}
+
+# @name createNotification0
+POST {{baseUrl}} HTTP/1.1
+content-type: application/json
+
+{
+    "recipientId": "{{recipientId}}",
+    "content": "Você tem uma resposta para sua dúvida. - Cancel - {{$datetime rfc1123}}",
+    "category": "forum"
+}
+
+###
+
+# @name createNotification
+POST {{baseUrl}} HTTP/1.1
+content-type: application/json
+
+{
+    "recipientId": "{{recipientId}}",
+    "content": "Você tem uma nova solicitação de amizade - Cancel - {{$datetime rfc1123}}",
+    "category": "social"
+}
+
+### 
+@notificationId = {{createNotification.response.body.$.notification.id}}
+@recipientId = {{createNotification.response.body.$.notification.recipientId}}
+
+# @name cancelNotification
+PATCH {{baseUrl}}/{{notificationId}}/cancel
+
+### 
+# @name getCountManyByRecipientId
+GET {{baseUrl}}/from/{{recipientId}}

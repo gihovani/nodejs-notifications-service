@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:3000/notifications
+@recipientId = {{$guid}}
+
+# @name createNotification
+POST {{baseUrl}} HTTP/1.1
+content-type: application/json
+
+{  
+    "recipientId": "{{recipientId}}",
+    "content": "Você tem uma nova solicitação de amizade - GG2. - {{$datetime rfc1123}}",
+    "category": "social"
+}
+
+### 
+@recipientId = {{createNotification.response.body.$.notification.recipientId}}
+# @name getCountManyByRecipientId
+GET {{baseUrl}}/count/from/{{recipientId}}

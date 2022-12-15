@@ -3,6 +3,6 @@ content-type: application/json
 
 {  
     "recipientId": "{{$guid}}",
-    "content": "Teste Novo Comentario",
+    "content": "Você tem uma nova solicitação de amizade - GG2. - {{$datetime rfc1123}}",
     "category": "social"
 }

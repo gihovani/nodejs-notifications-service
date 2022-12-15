@@ -32,9 +32,14 @@ describe('Notification', () => {
     notification.recipientId = notificationRecipientId;
     expect(notification.recipientId).toEqual(notificationRecipientId);
 
-    const notificationReadAt = null;
-    notification.readAt = notificationReadAt;
+    notification.read();
+    expect(notification.readAt).toEqual(expect.any(Date));
+
+    notification.unread();
     expect(notification.readAt).toBeNull();
+
+    notification.cancel();
+    expect(notification.canceledAt).toEqual(expect.any(Date));
 
     expect(notification.createdAt).toEqual(notificationCreatedAt);
 
