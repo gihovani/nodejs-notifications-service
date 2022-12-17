@@ -1,0 +1,14 @@
+Aplicação da Semana Ignite NodeJS da RocketSeat
+
+- Aplicação Notifications Service:
+  -- Aplicação backend contendo uma api de notificações
+
+- Aplicação Kafka Producer:
+  -- Aplicação com o producer para gerar/produzir notificações pro servidor do kafka
+
+- Precisamos criar um servidor kafka e ajustar as credenciais
+  -- nos arquivos:
+  --- /kafka-producer/producer.js
+  --- /notifications-service/src/infra/messaging/kafka/kafka-consumer.service.ts
+
+Author: Gihovani Filipp
